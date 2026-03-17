@@ -9,10 +9,9 @@ services:
       - key: PORT
         value: "8080"
       
-      # OpenClaw setup password
+      # OpenClaw setup password (set in Render dashboard)
       - key: OPENCLAW_PASSWORD
-        value: ""
-        sync: false
+        value: "<YOUR_OPENCLAW_PASSWORD>"
 
       # Ephemeral storage directories (free tier)
       - key: OPENCLAW_STATE_DIR
@@ -24,19 +23,19 @@ services:
       - key: OPENCLAW_GATEWAY_TOKEN
         generateValue: true
 
-      # Telegram integration
+      # Telegram integration (set in Render dashboard)
       - key: TELEGRAM_BOT_TOKEN
-        value: ""
+        value: "<YOUR_TELEGRAM_BOT_TOKEN>"
       - key: TELEGRAM_CHAT_ID
-        value: ""
+        value: "<YOUR_TELEGRAM_CHAT_ID>"
 
       # LLM provider configuration (Groq)
       - key: LLM_PROVIDER
         value: "groq"
       - key: LLM_API_KEY
-        value: ""
+        value: "<YOUR_GROQ_API_KEY>"
       - key: LLM_MODEL
-        value: "small-llama"  # small LLaMA model for ALISE reasoning
+        value: "small-llama"
 
       # Optional: async loop delay in seconds
       - key: SCAN_LOOP_DELAY
