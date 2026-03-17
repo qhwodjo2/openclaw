@@ -5,16 +5,39 @@ services:
     plan: free
     healthCheckPath: /health
     envVars:
+      # Web service port
       - key: PORT
         value: "8080"
+      
+      # OpenClaw setup password
       - key: OPENCLAW_PASSWORD
-        value: "Myopenclawpa$$@1"
+        value: ""
         sync: false
+
+      # Ephemeral storage directories (free tier)
       - key: OPENCLAW_STATE_DIR
-        value: /data/.openclaw
+        value: /tmp/.openclaw
       - key: OPENCLAW_WORKSPACE_DIR
-        value: /data/workspace
+        value: /tmp/workspace
+
+      # OpenClaw gateway token (auto-generated)
       - key: OPENCLAW_GATEWAY_TOKEN
         generateValue: true
-    
-      sizeGB: 1
+
+      # Telegram integration
+      - key: TELEGRAM_BOT_TOKEN
+        value: ""
+      - key: TELEGRAM_CHAT_ID
+        value: ""
+
+      # LLM provider configuration (Groq)
+      - key: LLM_PROVIDER
+        value: "groq"
+      - key: LLM_API_KEY
+        value: ""
+      - key: LLM_MODEL
+        value: "small-llama"  # small LLaMA model for ALISE reasoning
+
+      # Optional: async loop delay in seconds
+      - key: SCAN_LOOP_DELAY
+        value: "10"
